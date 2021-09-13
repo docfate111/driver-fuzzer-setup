@@ -19,4 +19,4 @@ echo "then bin/syz-manager gives errors: can't find /root/go/src/github.com/goog
 echo "to fix this we cp to /root/go"
 mkdir -p /root/go/src/github.com/google/syzkaller
 cp -r bin /root/go/src/github.com/google/syzkaller
-./bin/syz-manager --config=/my.cfg
+./bin/syz-manager --config=/root/my.cfg --debug
