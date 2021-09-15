@@ -13,7 +13,8 @@ export PATH=$GOPATH/bin:$PATH
 export PATH=$GOROOT/bin:$PATH
 go get -u -d github.com/google/syzkaller/prog
 cd gopath/src/github.com/google/syzkaller/
+cp ~/fs_ioctl_f2fs.txt .
+make bin/syz-extract
+./bin/syz-extract -os linux -arch=amd64 -sourcedir /kernel -build fs_ioctl_f2fs.txt
 make
-echo "then bin/syz-manager gives errors: can't find /root/go/src/github.com/google/syzkaller/bin/linux_amd64/syz-fuzzer"
-echo "to fix this we cp to /root/go"
-./bin/syz-manager --config=/root/my.cfg --debug
+./bin/syz-manager --config=/root/my.cfg
