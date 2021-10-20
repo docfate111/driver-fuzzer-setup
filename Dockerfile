@@ -49,7 +49,7 @@ RUN cd /bsod-kernel-fuzzing/bsod-afl/AFLplusplus && make -j$(nproc) && \
     echo "CONFIG_DEBUG_FS=y" >> linux/.config && \
     echo "CONFIG_DEBUG_INFO_DWARF4=y" >> linux/.config && \
     echo "CONFIG_DEBUG_INFO_BTF=y" >> linux/.config && \
-    echo "CONFIG_FRAME_POINTER=y" >> linux/.config && make -j64 bzImage && \
+    echo "CONFIG_FRAME_POINTER=y" >> linux/.config && make -C linux -j64 bzImage && \
     wget -q -c https://busybox.net/downloads/busybox-1.32.0.tar.bz2 && \
     [ -e busybox-1.32.0 ] || tar xjf busybox-1.32.0.tar.bz2 && \
     make -C busybox-1.32.0 defconfig && \
